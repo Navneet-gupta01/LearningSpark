@@ -1,6 +1,5 @@
 import scala.collection.Iterator
 
-import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkException, SparkContext, SparkConf}
 
 import scala.collection.mutable.ListBuffer
@@ -120,6 +119,7 @@ object Ex3_CombiningRDDs {
     }
 
     val unequalOK = earlyLetters.zipPartitions(numbers)(zipFunc)
+
     println("this may not be what you expected with unequal length RDDs")
     unequalOK foreach {
       case (c, i) => println(i + ":  " + c)

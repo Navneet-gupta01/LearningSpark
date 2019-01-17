@@ -1,3 +1,4 @@
+.idea/*
 *.class
 *.log
 
@@ -22,6 +23,7 @@ project/plugins/project/
 .worksheet
 .idea/workspace.xml
 .idea/.name
+.idea/
 
 # Hive
 metastore_db/*

@@ -11,6 +11,7 @@ object Ex2_Computations {
       showDep(dep.rdd, depth + 1)
     })
   }
+
   def showDep[T](r: RDD[T]) : Unit = {
     showDep(r, 0)
   }
@@ -25,7 +26,7 @@ object Ex2_Computations {
     val biggerStill = bigger.map(n => n + 1)
 
     println("Debug string for the RDD 'biggerStill'")
-    println(biggerStill.toDebugString)
+    println(biggerStill.toDebugString) // .toDebugString => A description of this RDD and its recursive dependencies for debugging.
 
     val s = biggerStill.reduce(_ + _)
 

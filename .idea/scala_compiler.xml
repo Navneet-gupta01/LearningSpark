@@ -3,7 +3,7 @@
   <component name="ScalaCompilerConfiguration">
     <option name="deprecationWarnings" value="true" />
     <profile name="SBT 1" modules="learningspark" />
-    <profile name="SBT 2" modules="learningspark2">
+    <profile name="SBT 2" modules="LearningSpark,learningspark2">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <parameters>
