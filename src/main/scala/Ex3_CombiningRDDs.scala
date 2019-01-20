@@ -48,11 +48,18 @@ object Ex3_CombiningRDDs {
     // cartesian product
     val cp = vowels.cartesian(numbers)
     println("Product has " + cp.count() + " elements")
-
+    cp.foreach(println)
+    println("==============")
     // index the letters
     val indexed = letters.zipWithIndex()
     println("indexed letters")
+    // Randomly printed
     indexed foreach {
+      case (c, i) => println(i + ":  " + c)
+    }
+
+    // Orderly PRinted
+    indexed.collect() foreach {
       case (c, i) => println(i + ":  " + c)
     }
 
@@ -77,7 +84,7 @@ object Ex3_CombiningRDDs {
       }
     } catch {
       case iae: IllegalArgumentException =>
-        println("Exception caught: " + iae.getMessage)
+        println("Exception caught: " + iae.getMessage)  // Can't zip RDDs with unequal numbers of partitions: List(8, 3) letters PArtition of 8 with twentySixBadPart partition of 3
     }
 
     // the zipped RDDs also need to have the same number of elements
@@ -121,8 +128,9 @@ object Ex3_CombiningRDDs {
     val unequalOK = earlyLetters.zipPartitions(numbers)(zipFunc)
 
     println("this may not be what you expected with unequal length RDDs")
-    unequalOK foreach {
-      case (c, i) => println(i + ":  " + c)
-    }
+    unequalOK.foreach(println)
+//    unequalOK foreach {
+//      case (c, i) => println(i + ":  " + c)
+//    }
   }
 }

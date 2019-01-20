@@ -28,6 +28,7 @@ object Ex4_MoreOperationsOnRDDs {
     // out in the right order, but the characters within a word do
     val words = sc.parallelize(Seq("Hello", "World"), 2)
     val chars = words.flatMap(w => w.iterator)
+//    chars.foreach(println)
     println(chars.map(c => c.toString).reduce((s1, s2) => s1 + " " + s2))
 
     // groupBy
@@ -43,6 +44,8 @@ object Ex4_MoreOperationsOnRDDs {
     // TODO: what point was I trying to make?
     val mods = modThreeGroups.collect({
       case (m, vals) => vals.count(_ => true) }).countByValue
+
+    mods.foreach(println)
     println("results found 3 times: " + mods.get(3))
     println("results found 4 times: " + mods.get(4))
     println("results found 7 times: " + mods.get(7))

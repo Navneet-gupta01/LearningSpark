@@ -63,14 +63,14 @@ object Ex2_Computations {
     showDep(moreNumbers)
 
     // again, calculations are not done until strictly necessary
-    println("this shouldn't throw an exception")
+    println("this shouldn't throw an exception") // Since Calculations are not done strictly
     val thisWillBlowUp = numbers map {
       case (7) => { throw new Exception }
       case (n) => n
     }
 
     // notice it didn't blow up yet even though there's a 7
-    println("the exception should get thrown now")
+    println("the exception should get thrown now") // Since calculations are forced here using `thisWillBlowUp.count()`
     try {
       println(thisWillBlowUp.count())
     } catch {
