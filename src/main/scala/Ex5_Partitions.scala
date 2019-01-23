@@ -1,9 +1,7 @@
 import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.{SparkConf, SparkContext}
 
-import org.apache.spark.SparkContext._
-
-import scala.collection.{mutable, Iterator}
+import scala.collection.{Iterator, mutable}
 
 object Ex5_Partitions {
 
